@@ -1,0 +1,87 @@
+class cuenta:
+    def __init__(self, nombre_titular, numero_cuenta):
+        self.nombre_titular = nombre_titular 
+        self.numero_cuenta = numero_cuenta 
+        self.saldo = 0
+    
+    def depositar(self, cantidad):
+        self.saldo = self.saldo + cantidad 
+        return self.saldo
+    
+    def retirar(self, cantidad):
+        if self.saldo >= cantidad:
+            self.saldo = self.saldo - cantidad 
+            return self.saldo
+        else: 
+            print("No hay dinero para este retiro")
+            return -1
+        
+    def consultar(self):
+        return self.saldo
+
+
+
+#Programa principal 
+
+lista_cuenta = []
+
+print("Bienvenido al banco")
+while True:
+    print("Ingrese la opción deseada")
+    print("1. Registrar cuenta")
+    print("2. Depositar ")
+    print("3. Retirar")
+    print("4. consultar saldo")
+    print("0. salir")
+
+    opción = int(input())
+
+    if opción == 1:
+        nombre = input("Ingrese el nombre del titular: ")
+        numero_cuenta = int(input("Ingrese el numero de cuenta: "))
+        nueva_cuenta = cuenta(nombre, numero_cuenta)
+        lista_cuenta.append(nueva_cuenta)
+
+    if opción == 2:
+        numero_cuenta = int(input("Ingrese el numero de cuenta: "))
+        existe = False
+        for cuenta in lista_cuenta:
+            if cuenta.numero_cuenta == numero_cuenta:
+                cantidad == float(input("Ingrese la cantidad a depositar:"))
+                nuevo_saldo = cuenta.depositar(cantidad)
+                print("El nuevo saldo es:, nuevo_saldo")
+
+        if existe == False:
+                print("Cuenta no existe")
+
+    if opción == 3:
+        numero_cuenta = int(input("Ingrese el numero de cuenta"))
+        existe = False
+        for cuenta in lista_cuenta:
+            if cuenta.numero_cuenta == nueva_cuenta:
+                existe = True
+                cantidad = float(input("ingrese la cantidad a retirar"))
+                nuevo_saldo = cuenta.retirar(cantidad)
+
+                if nuevo_saldo >= 0:
+                    print("Retiro exitoso. su nuevo saldo es:", nuevo_saldo)
+
+        if existe == False:
+            print("Cuenta no existe")
+    
+    if opción == 4:
+        numero_cuenta = int(input("Ingrese el numero de cuenta: "))
+        existe = False
+        for cuenta in lista_cuenta:
+            if cuenta.numero_cuenta == numero_cuenta: 
+             existe = True
+            print("Su saldo es", cuenta.consultar())
+        
+        if existe == False:
+            print("Cuenta no existe")
+
+    elif opción == 0:
+        print("Hasta luego")
+        break 
+    else:
+        print("Opción incorrecta")
