@@ -15,7 +15,7 @@ class Estudiante(Persona):
         print(f"{self.nombre} esta estudianso {self.carrera}")
 
 persona1 = Persona("carlos", "inge. sistemas")
-persona1.estudiar()
+persona1.respirar()
 
 persona2 = Estudiante("Cami", "derecho")
 persona2.estudiar
