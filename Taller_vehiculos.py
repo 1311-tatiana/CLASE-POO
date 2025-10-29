@@ -20,7 +20,9 @@ class Vehiculo(Empresa):
         self.marca = marca 
 
 class Moto(Vehiculo):
-
+    pass
 class Camion(Vehiculo):
+    pass
 
 class Autoparticular(Vehiculo):
+    pass 
